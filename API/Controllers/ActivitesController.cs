@@ -42,7 +42,12 @@ namespace API.Controllers
             activity.Id = id;
             return await Mediator.Send(new EditActivity.Command { ActivityDTO = activity });
         }
-        
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteActivity(Guid id)
+        {
+               
+            return Ok(await Mediator.Send(new DeleteActivity.Command { Id = id }));
+        }   
     }
 
 }
