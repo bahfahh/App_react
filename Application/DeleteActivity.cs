@@ -23,6 +23,7 @@ namespace Application
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 System.Diagnostics.Debug.WriteLine($"Handling delete activity request for ID: {request.Id}");
+                System.Diagnostics.Debug.WriteLine($"delete .....doing");
                 System.Console.WriteLine(request.Id);
                 var activity = await _context.Activities.FindAsync(request.Id);
                 _context.Remove(activity);
