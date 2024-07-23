@@ -23,9 +23,10 @@ try
 {
     System.Console.WriteLine("doing");
     var context = services.GetRequiredService<DataContext>();
-    await context.Database.EnsureDeletedAsync();
+System.Console.WriteLine("doing 2");
+   // await context.Database.EnsureDeletedAsync();
     // Create a new database and apply migrations
-    await context.Database.MigrateAsync();
+  //  await context.Database.MigrateAsync();
     //context.Database.EnsureCreated();
     System.Console.WriteLine("before seed data");
     await Seed.SeedData(context);

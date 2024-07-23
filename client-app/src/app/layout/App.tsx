@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import './style.css'
 import axios from 'axios'
-import { Header, List } from 'semantic-ui-react';
+import { Container, Header, List } from 'semantic-ui-react';
 import { Activity } from '../../model/activity';
 import NavBar from '../NavBar';
-
+import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 function App() {
   const [activities, setActivities] = useState<Activity[]>([])
   useEffect(() => {
@@ -18,16 +18,10 @@ function App() {
   }, [])
   return (
     <>
-      <div>
-        <NavBar/>
-        <List>
-          <List.Item>
-            {activities.map((activity: Activity) => (
-              <li key={activity.id}>{activity.title}</li>
-            ))}
-          </List.Item>
-        </List>
-      </div>
+      <NavBar />
+      <Container>
+       <ActivityDashboard activities={activities} />
+      </Container>
     </>
   )
 }
